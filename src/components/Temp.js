@@ -17,7 +17,7 @@ function Temp() {
           }
         }
         sendData()
-    
+        console.log("I was here2")
       },[])
     return (
         <div>
