@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react'
 import { collection, addDoc } from "firebase/firestore"; 
-import {db} from "./config.js"
+import {db} from "../firebase.js"
 
 
 function Temp() {
     useEffect (()=>{
         async function sendData() {
           try {
-            const docRef = await addDoc(collection(db, "test2"), {
-              first: "Ada1",
+            const docRef = await addDoc(collection(db, "test5"), {
+              first: "NEW",
               last: "Lovelace",
             });
             console.log("Document written with ID: ", docRef.id);
