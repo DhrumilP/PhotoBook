@@ -7,6 +7,7 @@ function Temp() {
     useEffect (()=>{
         async function sendData() {
           try {
+            console.log("I was here")
             const docRef = await addDoc(collection(db, "test5"), {
               first: "NEW",
               last: "Lovelace",
@@ -17,7 +18,7 @@ function Temp() {
           }
         }
         sendData()
-    
+        console.log("I was here2")
       },[])
     return (
         <div>
