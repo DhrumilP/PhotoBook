@@ -1,10 +1,10 @@
-import React from 'react'
-import Testing from './components/Testing';
+import React,{ useEffect } from "react";
+import Temp from "./components/Temp";
 
 function App() {
- 
+  
   return (
-   < Testing/>
+    <Temp></Temp>
   );
 }
 
