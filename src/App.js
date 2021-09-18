@@ -1,7 +1,10 @@
+import React from 'react'
+import Testing from './components/Testing';
 
 function App() {
+ 
   return (
-   <h1>Hello World</h1>
+   < Testing/>
   );
 }
 
