@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react'
 import { collection, addDoc } from "firebase/firestore"; 
-import {db} from "../firebase.js"
+import {db} from "../firebase"
 
 
 function Temp() {
     useEffect (()=>{
         async function sendData() {
           try {
-            const docRef = await addDoc(collection(db, "test5"), {
+            const docRef = await addDoc(collection(db, "dhrumil"), {
               first: "NEW",
               last: "Lovelace",
             });
