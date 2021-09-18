@@ -7,7 +7,7 @@ function Temp() {
     useEffect (()=>{
         async function sendData() {
           try {
-            const docRef = await addDoc(collection(db, "test"), {
+            const docRef = await addDoc(collection(db, "test2"), {
               first: "Ada1",
               last: "Lovelace",
             });
