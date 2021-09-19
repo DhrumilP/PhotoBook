@@ -6,11 +6,7 @@ export default function Image(props) {
   const deleteImage = (image) => {
     async function deleteData() {
       await deleteDoc(doc(db, "images", image.id));
-      props.setImages(
-        props.images.filter(function (img) {
-          return img.id !== image.id;
-        })
-      );
+      props.setFlag(props.flag + 1);
     }
     deleteData();
   };

@@ -6,33 +6,32 @@ import ImageUpload from "./ImageUpload.js";
 
 function DisplayImages() {
   const [images, setImages] = useState([]);
+  const [flag, setFlag] = useState(0);
   useEffect(() => {
     async function getData() {
       const querySnapshot = await getDocs(collection(db, "images"));
+      let tempImages = [];
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
-        setImages((images) => [...images, { tag: doc.data().tag, id: doc.id }]);
+        tempImages.push({ tag: doc.data().tag, id: doc.id });
         console.log("images", images);
       });
+      setImages(tempImages);
     }
     getData();
-  }, []);
+  }, [flag]);
 
   return (
     <div>
-      <ImageUpload
-        images={images}
-        setImages={setImages}
-        images={images}
-      ></ImageUpload>
+      <ImageUpload flag={flag} setFlag={setFlag}></ImageUpload>
       {images.map((image) => {
         return (
           <Image
             key={image.id}
             image={image}
-            images={images}
-            setImages={setImages}
+            flag={flag}
+            setFlag={setFlag}
           ></Image>
         );
       })}

@@ -17,6 +17,7 @@ function ImageUpload(props) {
         encodeBase64(images[key]);
       }
     }
+    props.setFlag(props.flag + 1);
   };
 
   async function sendData(file) {
@@ -25,10 +26,6 @@ function ImageUpload(props) {
         tag: file,
       });
       console.log("Document written with ID: ", docRef.id);
-      props.setImages((images) => [
-        ...props.images,
-        { tag: file, id: docRef.id },
-      ]);
     } catch (e) {
       console.error("Error adding documet: ", e);
     }
