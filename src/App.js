@@ -1,11 +1,8 @@
 import React from "react";
-import Temp from "./components/Temp";
+import DisplayImages from "./components/DisplayImages";
 
 function App() {
-  
-  return (
-    <Temp></Temp>
-  );
+  return <DisplayImages></DisplayImages>;
 }
 
 export default App;
