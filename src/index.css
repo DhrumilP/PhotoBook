@@ -13,15 +13,17 @@ code {
 }
 
 img {
+  float: left;
   width: 100px;
   height: 100px;
   object-fit: cover;
-  margin-left: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
   margin-top: 25px;
 }
 
 button {
-  height: 50px;
+  height: 20px;
   width: 50px;
-  margin-left: 20px;
+  margin-top: 10px;
 }

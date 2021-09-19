@@ -22,19 +22,26 @@ function DisplayImages() {
     getData();
   }, [flag]);
 
+  const displayStyle = {
+    float: "left",
+    display: "inline-block",
+  };
+
   return (
     <div>
       <ImageUpload flag={flag} setFlag={setFlag}></ImageUpload>
-      {images.map((image) => {
-        return (
-          <Image
-            key={image.id}
-            image={image}
-            flag={flag}
-            setFlag={setFlag}
-          ></Image>
-        );
-      })}
+      <div style={displayStyle}>
+        {images.map((image) => {
+          return (
+            <Image
+              key={image.id}
+              image={image}
+              flag={flag}
+              setFlag={setFlag}
+            ></Image>
+          );
+        })}
+      </div>
     </div>
   );
 }

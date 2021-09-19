@@ -10,10 +10,17 @@ export default function Image(props) {
     }
     deleteData();
   };
+  const imageStyle = {
+    float: "left",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    /* justify-content: center;*/
+  };
   return (
-    <div>
-      <button onClick={() => deleteImage(props.image)}>delete</button>
+    <div style={imageStyle}>
       <img src={props.image.tag} />
+      <button onClick={() => deleteImage(props.image)}>delete</button>
     </div>
   );
 }

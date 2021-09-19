@@ -48,10 +48,11 @@ function ImageUpload(props) {
   };
 
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div style={{ marginLeft: "40px" }}>
+      <h1>PhotoBook</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <input
+          style={{ marginBottom: "5px" }}
           type="file"
           name="uploads[]"
           onChange={(e) => setImages(e.target.files)}
