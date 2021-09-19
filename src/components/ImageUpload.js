@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "./config.js";
+import { db } from "../firebase";
 import { base64 } from "@firebase/util";
 
-function ImageUpload() {
+function ImageUpload(props) {
   const [images, setImages] = useState([]);
-  const [base64Image, setBase64Image] = useState();
+  // const [base64Image, setBase64Image] = useState();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,6 +25,10 @@ function ImageUpload() {
         tag: file,
       });
       console.log("Document written with ID: ", docRef.id);
+      props.setImages((images) => [
+        ...props.images,
+        { tag: file, id: docRef.id },
+      ]);
     } catch (e) {
       console.error("Error adding documet: ", e);
     }
@@ -36,7 +40,8 @@ function ImageUpload() {
       reader.readAsDataURL(file);
       reader.onload = () => {
         var base64 = reader.result;
-        setBase64Image(base64);
+        // setBase64Image(base64);
+
         sendData(base64);
       };
       reader.onerror = (error) => {
@@ -53,7 +58,7 @@ function ImageUpload() {
           type="file"
           name="uploads[]"
           onChange={(e) => setImages(e.target.files)}
-          accept="image/png, image/jpeg, image/jpg"
+          accept="image/png, image/jpeg"
           multiple
         />
         <br />

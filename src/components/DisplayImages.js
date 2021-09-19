@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase.js";
 import Image from "./Image";
+import ImageUpload from "./ImageUpload.js";
 
 function DisplayImages() {
   const [images, setImages] = useState([]);
@@ -17,8 +18,14 @@ function DisplayImages() {
     }
     getData();
   }, []);
+
   return (
     <div>
+      <ImageUpload
+        images={images}
+        setImages={setImages}
+        images={images}
+      ></ImageUpload>
       {images.map((image) => {
         return (
           <Image
