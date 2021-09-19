@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase.js";
+import Image from "./Image";
 
 function DisplayImages() {
   const [images, setImages] = useState([]);
@@ -11,6 +12,7 @@ function DisplayImages() {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, " => ", doc.data());
         setImages((images) => [...images, { tag: doc.data().tag, id: doc.id }]);
+        console.log("images", images);
       });
     }
     getData();
@@ -18,16 +20,7 @@ function DisplayImages() {
   return (
     <div>
       {images.map((image) => {
-        const deleteImage = (image) => {
-          console.log("id", image.id);
-          console.log("image", images);
-        };
-        return (
-          <div key={image.id}>
-            <button onClick={() => deleteImage(image)}>delete</button>
-            <img src={image.tag} />
-          </div>
-        );
+        return <Image image={image}></Image>;
       })}
     </div>
   );
