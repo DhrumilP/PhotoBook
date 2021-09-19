@@ -20,7 +20,14 @@ function DisplayImages() {
   return (
     <div>
       {images.map((image) => {
-        return <Image image={image}></Image>;
+        return (
+          <Image
+            key={image.id}
+            image={image}
+            images={images}
+            setImages={setImages}
+          ></Image>
+        );
       })}
     </div>
   );
