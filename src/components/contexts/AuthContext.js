@@ -15,35 +15,18 @@ export function AuthProvider({ children }) {
 
 
     function signup(email, password) {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user);
-            })
-            .catch((error) => {
-                const errorMessage = error.message;
-                console.log(errorMessage);
-            });
+        return createUserWithEmailAndPassword(auth, email, password)
+ 
     }
 
     function signout() {
-        signOut(auth).then(() => {
-            // Sign-out successful.
-        }).catch((error) => {
-            // An error happened.
-        });
+        return signOut(auth)
+        
     }
 
     function login(email, password) {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user);
-            })
-            .catch((error) => {
-                const errorMessage = error.message;
-                console.log(errorMessage);
-            });
+        return signInWithEmailAndPassword(auth, email, password)
+            
     }
 
 
