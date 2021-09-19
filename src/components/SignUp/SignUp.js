@@ -33,7 +33,7 @@ function SignUp() {
             <Card>
                 <Card.Body>
                     <h2 className="text-center mb-4">Sign Up</h2>
-                    <Alert variant="success">User: {JSON.stringify(currentUser.email)}</Alert>
+                    {currentUser && <Alert variant="success">User: {JSON.stringify(currentUser.email)}</Alert>}
                     {error && <Alert variant = "danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit}>
                         <Form.Group id="email">
