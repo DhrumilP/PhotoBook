@@ -2,8 +2,9 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { AuthProvider } from "./components/contexts/AuthContext";
 import SignUp from "./components/SignUp/SignUp";
-import Temp from "./components/Temp";
+import Dashboard from "./components/Dashboard/Dashboard"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Login from "./components/Login/Login";
 
 
 function App() {
@@ -16,8 +17,9 @@ function App() {
         <Router>
           <AuthProvider>
             <Switch>
-              <Route exact path='/' component={dashboard}/>
+              <Route exact path='/' component={Dashboard}/>
               <Route path='/signup' component={SignUp} />
+              <Route path='/login' component={Login} />
 
             </Switch>
           </AuthProvider>

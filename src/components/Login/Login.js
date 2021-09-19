@@ -3,10 +3,9 @@ import { Card, Button, Form, Alert } from 'react-bootstrap'
 import {useAuth} from '../contexts/AuthContext'
 import {Link} from 'react-router-dom'
 
-function SignUp() {
+function Login() {
     const emailRef = useRef()
     const passwordRef = useRef()
-    const passwordConfirmRef = useRef()
     const {signup} = useAuth()
     const {currentUser} = useAuth()
     const [error, seterror] = useState('');
@@ -14,9 +13,6 @@ function SignUp() {
 
     async function handleSubmit(e){
         e.preventDefault()
-        if(passwordRef.current.value !== passwordConfirmRef.current.value){
-            return seterror('Passwords do not match')
-        }
         try{
             setLoading(true)
             seterror('');
@@ -33,7 +29,7 @@ function SignUp() {
         <div>
             <Card>
                 <Card.Body>
-                    <h2 className="text-center mb-4">Sign Up</h2>
+                    <h2 className="text-center mb-4">Login</h2>
                     {currentUser && <Alert variant="success">User: {JSON.stringify(currentUser.email)}</Alert>}
                     {error && <Alert variant = "danger">{error}</Alert>}
                     <Form onSubmit={handleSubmit}>
@@ -49,25 +45,17 @@ function SignUp() {
                             </Form.Label>
                             <Form.Control type="password" ref={passwordRef} placeholder="Enter Password" required />
                         </Form.Group>
-                        <Form.Group id="password-confirm">
-                            <Form.Label>
-                                Confirm Password
-                            </Form.Label>
-                            <Form.Control type="password" ref={passwordConfirmRef} placeholder="Confirm Password" required />
-                        </Form.Group>
                         <Button disabled={loading} className="w-100 my-3" variant="primary" type="submit">
-                            Sign Up
+                            Login
                         </Button>
                     </Form>
                 </Card.Body>
             </Card>
-
             <div className="w-100 text-center mt-2">
-                Existing User? <Link to="/login">Login</Link>
+                Account <Link to="/signup">Sign Up</Link> 
             </div>
-
         </div>
     )
 }
 
-export default SignUp
+export default Login
